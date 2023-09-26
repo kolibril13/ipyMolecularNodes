@@ -12,9 +12,13 @@ dependencies = [
     "anywidget",
     "watchfiles",
     "ipykernel",
-    "bpy",
-    "biotite",
-    "mdanalysis",
+    "bpy>=3.5.0",
+    "MDAnalysis==2.6.1",
+    "biotite==0.37.0",
+    "mrcfile",
+    "eulerangles",
+    "starfile",
+
 ]
 
 [tool.hatch.build]
