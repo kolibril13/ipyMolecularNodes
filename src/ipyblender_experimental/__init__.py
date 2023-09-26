@@ -1,7 +1,7 @@
 import importlib.metadata
 import pathlib
 from .render_to_image import render_to_image
-from .render_to_gltf_model import render_to_gltf_model
+from .render_to_gltf_model import render_to_gltf_model , render_to_gltf_structure
 import anywidget
 from traitlets import Int, Unicode, observe,Float
 
@@ -46,7 +46,7 @@ class BlenderInteractiveWidget(anywidget.AnyWidget):
     count = Int(0).tag(sync=True)
     svalue = Float(30).tag(sync=True)
 
-    model_data = render_to_gltf_model(count, svalue)
+    model_data = render_to_gltf_structure(count, svalue)
     torusname = Unicode(model_data).tag(sync=True)
 
     @observe("svalue")
