@@ -13,6 +13,7 @@ dependencies = [
     "watchfiles",
     "ipykernel",
     "bpy",
+    "biotite",
 ]
 
 [tool.hatch.build]
