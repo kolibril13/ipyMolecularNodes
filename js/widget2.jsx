@@ -28,10 +28,10 @@ export const render = createRender(() => {
   const [torusname] = useModelState("torusname");
 
   return (
-    <div>
-      <Canvas>
+    <div style={{ height: "500px" }}>
+      <Canvas style={{ height: "100%" }}>
         <ambientLight />
-        <pointLight position={[-1, 0, 1]} /> 
+        <pointLight position={[-1, 0, 1]} />
         {/* -1 goes to 1 */}
         <Suspense fallback={null}>
           <BlenderModel position={[2, -2, -2]} torusModelUrl={torusname} />
@@ -42,4 +42,3 @@ export const render = createRender(() => {
     </div>
   );
 });
-
