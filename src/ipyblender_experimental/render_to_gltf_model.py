@@ -106,7 +106,7 @@ def render_to_gltf_structure(counter, light_position):
     bpy.ops.object.select_by_type(type="MESH")
     bpy.ops.object.delete()
     
-    torus = mn.load.molecule_rcsb('1M8Q', starting_style = 2, center_molecule = True)
+    torus = mn.load.molecule_rcsb('6N2Y', starting_style = 2, center_molecule = True)
     torus.scale = [10, 10, 10]
     apply_mods(torus)
 

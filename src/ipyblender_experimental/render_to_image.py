@@ -2,6 +2,21 @@ import bpy
 import base64
 from pathlib import Path
 
+import MolecularNodes as mn
+
+
+def apply_mods(obj):
+    """
+    Applies the modifiers on the modifier stack
+
+    This will realise the computations inside of any Geometry Nodes modifiers, ensuring
+    that the result of the node trees can be compared by looking at the resulting
+    vertices of the object.
+    """
+    bpy.context.view_layer.objects.active = obj
+    for modifier in obj.modifiers:
+        bpy.ops.object.modifier_apply(modifier=modifier.name)
+
 
 def render_to_image(counter, light_position):
     light_position_normed = light_position / 20
@@ -10,18 +25,14 @@ def render_to_image(counter, light_position):
     bpy.ops.object.select_by_type(type="MESH")
     bpy.ops.object.delete()
 
-    # Add a torus
-    bpy.ops.mesh.primitive_torus_add(
-        major_radius=1.5,
-        minor_radius=0.75,
-        major_segments=48 * 4,
-        minor_segments=12 * 4,
-        align="WORLD",
-        location=(0, 1, 1),
-    )
+ 
 
     # Assigning the torus to a variable
-    torus = bpy.context.active_object
+    torus = mn.load.molecule_rcsb("6N2Y", starting_style=2, center_molecule=True)
+    # torus.scale = [.9, .9, .9]
+    apply_mods(torus)
+
+    torus.location.z += 1.3
 
     # Create a new material and assign it to the torus
     material = bpy.data.materials.new(name="RainbowGradient")
@@ -86,7 +97,7 @@ def render_to_image(counter, light_position):
     # Render
     path = "test.png"
     bpy.context.scene.render.resolution_x = 1000
-    bpy.context.scene.render.resolution_y = 400
+    bpy.context.scene.render.resolution_y = 500
     bpy.context.scene.render.image_settings.file_format = "PNG"
     bpy.context.scene.render.filepath = path
     bpy.ops.render.render(write_still=True)
