@@ -2,7 +2,7 @@ import bpy
 import base64
 from pathlib import Path
 
-import MolecularNodes as mn
+import molecularnodes as mn
 
 
 def apply_mods(obj):
