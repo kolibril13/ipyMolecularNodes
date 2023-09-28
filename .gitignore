@@ -11,5 +11,5 @@ test.png
 *.gltf
 *.glb
 
-.venv.vscode/
+.venv
 .vscode
