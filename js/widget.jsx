@@ -26,7 +26,7 @@ export const render = createRender(() => {
         <Button
           variant="contained"
           onClick={handleClick}
-          style={{ backgroundColor: "orange" }}
+          style={{ backgroundColor: "brightblue" }}
         >
           {label} {count}
         </Button>
@@ -37,15 +37,15 @@ export const render = createRender(() => {
             aria-label="Default"
             valueLabelDisplay="off"
             sx={{
-              color: "orange",
+              color: "brightblue",
               "& .MuiSlider-track": {
-                backgroundColor: "orange",
+                backgroundColor: "brightblue",
               },
               "& .MuiSlider-rail": {
-                backgroundColor: "lightgrey",
+                backgroundColor: "brightblue",
               },
               "& .MuiSlider-thumb:hover, & .MuiSlider-thumb.Mui-focusVisible": {
-                boxShadow: "0px 0px 0px 8px rgba(255,165,0,0.16)", // Changes the surrounding circle color to orange on hover and focus
+                boxShadow: "0px 0px 0px 8px rgba(0, 191, 255, 0.16)", // Changes the surrounding circle color to light blue on hover and focus
               },
             }}
           />
