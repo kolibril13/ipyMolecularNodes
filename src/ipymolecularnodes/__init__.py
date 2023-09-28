@@ -11,7 +11,7 @@ except importlib.metadata.PackageNotFoundError:
 
 class BlenderInteractiveWidget(anywidget.AnyWidget):
 
-    torusname = Unicode("").tag(sync=True)
+    gltf_data = Unicode("").tag(sync=True)
 
     _esm = pathlib.Path(__file__).parent / "static" / "interactive_widget.js"
     # _css = pathlib.Path(__file__).parent / "static" / "widget.css"

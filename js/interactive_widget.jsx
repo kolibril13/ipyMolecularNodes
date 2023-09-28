@@ -25,7 +25,7 @@ function BlenderModel(props) {
 }
 
 export const render = createRender(() => {
-  const [torusname] = useModelState("torusname");
+  const [gltf_data] = useModelState("gltf_data");
 
   return (
     <div style={{ height: "500px" }}>
@@ -34,7 +34,7 @@ export const render = createRender(() => {
         <pointLight position={[-1, 0, 1]} />
         {/* -1 goes to 1 */}
         <Suspense fallback={null}>
-          <BlenderModel position={[2, -2, -2]} torusModelUrl={torusname} />
+          <BlenderModel position={[2, -2, -2]} torusModelUrl={gltf_data} />
         </Suspense>
         <OrbitControls enablePan={false} />
         <perspectiveCamera position={[1, -3, 4]} />
