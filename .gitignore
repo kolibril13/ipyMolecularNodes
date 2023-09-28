@@ -5,7 +5,7 @@ dist
 __pycache__
 .ipynb_checkpoints
 
-src/ipyblender_experimental/static
+src/ipymolecularnodes/static
 test.png
 
 *.gltf

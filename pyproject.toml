@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "ipyblender_experimental"
+name = "ipymolecularnodes"
 version = "0.2.0"
 readme = "README.md"
 
@@ -17,11 +17,11 @@ dependencies = [
 
 [tool.hatch.build]
 only-packages = true
-artifacts = ["src/ipyblender_experimental/static/*"]
+artifacts = ["src/ipymolecularnodes/static/*"]
 
 
 [tool.hatch.build.hooks.jupyter-builder]
 build-function = "hatch_jupyter_builder.npm_builder"
-ensured-targets = ["src/ipyblender_experimental/static/widget.js"]
-skip-if-exists = ["src/ipyblender_experimental/static/widget.js"]
+ensured-targets = ["src/ipymolecularnodes/static/widget.js"]
+skip-if-exists = ["src/ipymolecularnodes/static/widget.js"]
 dependencies = ["hatch-jupyter-builder>=0.5.0"]

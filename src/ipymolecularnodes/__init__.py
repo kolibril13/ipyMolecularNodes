@@ -6,7 +6,7 @@ import anywidget
 from traitlets import Int, Unicode, observe,Float
 
 try:
-    __version__ = importlib.metadata.version("ipyblender_experimental")
+    __version__ = importlib.metadata.version("ipymolecularnodes")
 except importlib.metadata.PackageNotFoundError:
     __version__ = "unknown"
 
