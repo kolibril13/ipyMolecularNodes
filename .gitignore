@@ -12,3 +12,4 @@ test.png
 *.glb
 
 .venv
+.vscode
