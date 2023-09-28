@@ -1,7 +1,7 @@
 import bpy
 from IPython.display import Image, display
 from pathlib import Path
-import MolecularNodes as mn
+import molecularnodes as mn
 
 def render_to_gltf_model(counter, light_position):
     # Ensure the glTF exporter is activated
@@ -79,18 +79,18 @@ def render_to_gltf_model(counter, light_position):
     # Export the selected torus object to a .glb file
     bpy.ops.export_scene.gltf(filepath=str(gltf_path), export_format='GLTF_EMBEDDED', use_selection=True)
 
-    
+
     data = gltf_path.read_text()
     # gltf_path.unlink()
-        
+
     return data
 
 def apply_mods(obj):
     """
     Applies the modifiers on the modifier stack
-    
+
     This will realise the computations inside of any Geometry Nodes modifiers, ensuring
-    that the result of the node trees can be compared by looking at the resulting 
+    that the result of the node trees can be compared by looking at the resulting
     vertices of the object.
     """
     bpy.context.view_layer.objects.active = obj
@@ -105,8 +105,8 @@ def render_to_gltf_structure(counter, light_position):
     bpy.ops.object.select_all(action="DESELECT")
     bpy.ops.object.select_by_type(type="MESH")
     bpy.ops.object.delete()
-    
-    torus = mn.load.molecule_rcsb('6N2Y', starting_style = 2, center_molecule = True)
+
+    torus = mn.load.molecule_rcsb('6N2Y', starting_style = "cartoon", center_molecule = True)
     torus.scale = [10, 10, 10]
     apply_mods(torus)
 
@@ -125,8 +125,8 @@ def render_to_gltf_structure(counter, light_position):
     # Export the selected torus object to a .glb file
     bpy.ops.export_scene.gltf(filepath=str(gltf_path), export_format='GLTF_EMBEDDED', use_selection=True)
 
-    
+
     data = gltf_path.read_text()
     # gltf_path.unlink()
-        
+
     return data
